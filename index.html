@@ -987,43 +987,62 @@
       line-height: 1.65;
     }
 
+    /* Testing warning banner above the form */
+    /* TODO: Remove .form-testing-banner block (HTML + CSS) once form is live */
+    .form-testing-banner {
+      background: repeating-linear-gradient(
+        -45deg,
+        #fff3cd,
+        #fff3cd 12px,
+        #ffe69c 12px,
+        #ffe69c 24px
+      );
+      border: 3px solid #e6a817;
+      border-radius: 14px;
+      padding: 18px 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .form-testing-banner .ftb-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .form-testing-banner .ftb-body strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #7a4800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .form-testing-banner .ftb-body p {
+      font-size: 0.9rem;
+      color: #7a4800;
+      line-height: 1.5;
+      margin: 0;
+    }
+
     /* Shell that wraps the Google Form iframe */
     .form-shell {
       width: 100%;
       border-radius: 22px;
       overflow: hidden;
-      border: 1px solid #FFE0E8;
+      border: 3px dashed #e6a817;
       box-shadow: 0 8px 40px rgba(255, 105, 180, 0.1);
       background: #fafafa;
-      /* TODO: Remove min-height once real iframe is embedded */
-      min-height: 520px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    /* Placeholder shown until real Google Form is embedded */
-    .form-placeholder {
-      text-align: center;
-      padding: 60px 32px;
-      color: #9B6B7B;
-    }
-
-    .form-placeholder .ph-icon {
-      font-size: 3.5rem;
-      margin-bottom: 18px;
-    }
-
-    .form-placeholder p {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .form-placeholder small {
-      font-size: 0.82rem;
-      opacity: 0.65;
+    .form-shell iframe {
+      display: block;
+      width: 100%;
+      border: none;
     }
 
     /* ============================================================
@@ -1662,32 +1681,22 @@
           We'll follow up within 1–2 business days to confirm details.
         </div>
 
-        <!-- Google Form embed shell -->
-        <!-- TODO: Replace the placeholder div below with an actual Google Form <iframe>.
-             Steps:
-               1. Open your Google Form
-               2. Click Send → Embed icon (<>)
-               3. Copy the <iframe> src URL
-               4. Paste it into the src below and remove the placeholder div
-             Example:
-             <iframe
-               src="YOUR_GOOGLE_FORM_EMBED_URL_HERE"
-               width="100%"
-               height="700"
-               frameborder="0"
-               marginheight="0"
-               marginwidth="0"
-               style="border:none;border-radius:22px;"
-               title="Order Form">
-               Loading…
-             </iframe>
-        -->
-        <div class="form-shell">
-          <div class="form-placeholder">
-            <div class="ph-icon">📋</div>
-            <p>Order form coming soon!</p>
-            <small><!-- TODO: Embed Google Form iframe here --></small>
+        <!-- TODO: Remove the testing banner below once the form is reviewed and ready to go live -->
+        <div class="form-testing-banner">
+          <span class="ftb-icon">⚠️</span>
+          <div class="ftb-body">
+            <strong>Testing Only — Do Not Submit Real Orders</strong>
+            <p>This form is currently being tested and is <em>not yet active</em>. Any orders submitted here will <em>not</em> be received. Please contact Annie directly until this notice is removed.</p>
           </div>
+        </div>
+
+        <div class="form-shell">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfKUXnEf-Ki0nRoxzZPsUig4gzo2mruQeCcgyEf-9ysTyeNVA/viewform?embedded=true"
+            height="720"
+            title="Annie's Baking Creations — Order Form (Testing)">
+            Loading form…
+          </iframe>
         </div>
 
       </div><!-- /.order-wrap -->
@@ -1735,16 +1744,14 @@
         <div class="contact-card">
           <span class="contact-icon">📘</span>
           <h3>Facebook</h3>
-          <!-- TODO: Replace # with real Facebook page URL -->
-          <span class="todo-badge">Link coming soon</span>
+          <a href="https://www.facebook.com/profile.php?id=100089763922885" target="_blank" rel="noopener noreferrer">Annie's Baking Creations</a>
         </div>
 
         <!-- Instagram -->
         <div class="contact-card">
           <span class="contact-icon">📸</span>
           <h3>Instagram</h3>
-          <!-- TODO: Replace # with real Instagram profile URL -->
-          <span class="todo-badge">Link coming soon</span>
+          <a href="https://www.instagram.com/annies_baking_creations/" target="_blank" rel="noopener noreferrer">@annies_baking_creations</a>
         </div>
 
       </div><!-- /.contact-grid -->
@@ -1773,12 +1780,11 @@
     </ul>
 
     <div class="footer-social">
-      <!-- TODO: Replace # href values with real social media URLs -->
-      <a href="#" class="social-link" aria-label="Facebook">
-        📘 &nbsp; Facebook <!-- TODO: Facebook URL -->
+      <a href="https://www.facebook.com/profile.php?id=100089763922885" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+        📘 &nbsp; Facebook
       </a>
-      <a href="#" class="social-link" aria-label="Instagram">
-        📸 &nbsp; Instagram <!-- TODO: Instagram URL -->
+      <a href="https://www.instagram.com/annies_baking_creations/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+        📸 &nbsp; Instagram
       </a>
     </div>
 
