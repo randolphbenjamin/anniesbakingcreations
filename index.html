@@ -435,19 +435,7 @@
       font-size: 1.1rem;
     }
 
-    /* Decorative offset square behind the image */
-    .about-img-wrap::after {
-      content: '';
-      position: absolute;
-      bottom: -16px;
-      right: -16px;
-      width: 55%;
-      height: 55%;
-      background: linear-gradient(145deg, #FFE0E8, #FFB6C1);
-      border-radius: 24px;
-      z-index: -1;
-      opacity: 0.35;
-    }
+    /* Decorative offset square removed — inset stand photo fills this role */
 
     /* Text column */
     .about-eyebrow {
@@ -476,8 +464,8 @@
       margin-bottom: 36px;
     }
 
-    /* Real about photo */
-    .about-stand-img {
+    /* Main shop photo */
+    .about-img-main {
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
@@ -486,20 +474,41 @@
       display: block;
     }
 
-    /* "Now Retired" ribbon over the stand photo */
+    /* Inset wrapper — retired stand photo in the bottom-right corner */
+    .about-img-inset-wrap {
+      position: absolute;
+      bottom: -20px;
+      right: -22px;
+      width: 48%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 3px solid #fff;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18);
+      z-index: 2;
+    }
+
+    .about-img-inset {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* "Now Retired" ribbon on the inset stand photo */
     .retired-ribbon {
       position: absolute;
-      top: 22px;
+      top: 12px;
       left: -6px;
       background: linear-gradient(135deg, #4A2C2A 0%, #7A4545 100%);
       color: #FFD6E0;
       font-family: 'Dancing Script', cursive;
-      font-size: 1rem;
-      padding: 7px 18px 7px 14px;
+      font-size: 0.88rem;
+      padding: 6px 14px 6px 12px;
       border-radius: 0 6px 6px 0;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-      z-index: 2;
+      z-index: 3;
       letter-spacing: 0.02em;
+      white-space: nowrap;
     }
 
     /* Folded corner effect on the ribbon */
@@ -1259,14 +1268,23 @@
     <div class="container">
       <div class="about-grid">
 
-        <!-- Left: retired stand photo with ribbon -->
+        <!-- Left: main shop photo + retired stand inset -->
         <div class="about-img-wrap">
+          <!-- Main image: the current shop -->
           <img
-            src="ABC_Stand_Retired.jpg"
-            alt="Annie's original farm stand in Bassett, WI — now retired"
-            class="about-stand-img"
+            src="ABC_Shop_Christmas_2025_2.jpg"
+            alt="Annie's Baking Creations shop in Bassett, WI"
+            class="about-img-main"
           >
-          <div class="retired-ribbon">✦ Now Retired</div>
+          <!-- Inset: the original farm stand, now retired -->
+          <div class="about-img-inset-wrap">
+            <img
+              src="ABC_Stand_Retired.jpg"
+              alt="Annie's original farm stand — now retired"
+              class="about-img-inset"
+            >
+            <div class="retired-ribbon">✦ Now Retired</div>
+          </div>
         </div>
 
         <!-- Right: story -->
