@@ -35,6 +35,9 @@ All items below are also marked with `<!-- TODO: -->` comments directly in `inde
 - [ ] **Lead time** — How far in advance should orders be placed? (standard and custom)
 - [ ] **Allergy/dietary policy** — What accommodations are available?
 
+### Before Going Live
+- [ ] **Remove noindex tag** — Delete (or change to `index, follow`) the `<meta name="robots" content="noindex, nofollow">` line near the top of `<head>` in `index.html`. This tag is intentionally blocking search engines while the site is under construction. Removing it allows Google and other search engines to index the site.
+
 ### Functionality
 - [ ] **Google Form** — Embed order form in the Order section:
   1. Open your Google Form
