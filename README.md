@@ -21,48 +21,21 @@ All items below are also marked with `<!-- TODO: -->` comments directly in `inde
 ### Content
 - [ ] **Tagline** — Update hero tagline with Annie's preferred wording
 - [ ] **About copy** — Write full "Our Story" section text
-- [ ] **About photo** — Replace placeholder `<div>` in About section with a real photo of Annie / the shop
 - [ ] **Menu items** — Fill in all item names and prices for: Pies, Cookies, Kolaches, Dessert Platters, Seasonal Specials
 - [ ] **Seasonal Specials** — This list should be updated regularly as offerings change
+- [ ] **Easter Menu image** — Swap `ABC_Easter_Menu1_Testing.jpg` for the final version when ready; remove the seasonal callout block after Easter season ends
 
 ### Contact & Business Info
-- [ ] **Full address** — Add complete street address in the Contact section and footer
+- [ ] **Full address** — Add complete street address in the Contact section
 - [ ] **Phone number** — Add in Contact section
-- [ ] **Facebook URL** — Add to Contact section and footer social links
-- [ ] **Instagram URL** — Add to Contact section and footer social links
 
 ### FAQ Answers
 - [ ] **Lead time** — How far in advance should orders be placed? (standard and custom)
 - [ ] **Allergy/dietary policy** — What accommodations are available?
 
 ### Before Going Live
-- [ ] **Remove noindex tag** — Delete (or change to `index, follow`) the `<meta name="robots" content="noindex, nofollow">` line near the top of `<head>` in `index.html`. This tag is intentionally blocking search engines while the site is under construction. Removing it allows Google and other search engines to index the site.
-
-### Functionality
-- [ ] **Google Form** — Embed order form in the Order section:
-  1. Open your Google Form
-  2. Click Send → Embed icon (`<>`)
-  3. Copy the iframe `src` URL
-  4. Replace the placeholder `<div class="form-shell">` block with:
-     ```html
-     <iframe
-       src="YOUR_GOOGLE_FORM_EMBED_URL_HERE"
-       width="100%"
-       height="700"
-       frameborder="0"
-       style="border:none;border-radius:22px;"
-       title="Order Form">
-     </iframe>
-     ```
-
-### Gallery
-- [ ] **Photos** — Replace all 8 `<div class="gallery-item">` placeholder tiles with real `<img>` tags.
-  Suggested format per tile:
-  ```html
-  <div class="gallery-item">
-    <img src="photo-name.jpg" alt="Description" style="width:100%;height:100%;object-fit:cover;">
-  </div>
-  ```
+- [ ] **Remove noindex tag** — Delete the `<meta name="robots" content="noindex, nofollow">` line near the top of `<head>` in `index.html` to allow search engines to index the site
+- [ ] **Activate order form** — Remove the `<div class="form-testing-banner">` block above the iframe and change the `form-shell` border from dashed amber back to `1px solid #FFE0E8`
 
 ---
 
@@ -70,11 +43,21 @@ All items below are also marked with `<!-- TODO: -->` comments directly in `inde
 
 ```
 anniesbakingcreations/
-├── index.html       ← entire site lives here
-├── ABC_Logo.jpg     ← logo (used in nav)
-├── ABC_Homepage.jpg ← hero background image
-├── CNAME            ← GitHub Pages custom domain config
-└── README.md        ← this file
+├── index.html                   ← entire site lives here
+├── ABC_Logo.jpg                 ← logo (used in nav)
+├── ABC_Homepage.jpg             ← hero background image
+├── ABC_Stand_Retired.jpg        ← about section inset (retired farm stand)
+├── ABC_Shop_Christmas_2025_1.jpg ← gallery
+├── ABC_Shop_Christmas_2025_2.jpg ← about section main photo + gallery
+├── ABC_Cake_1.jpg               ← gallery
+├── ABC_Valentines_Group_1.jpg   ← gallery (featured tile)
+├── ABC_StPatricks_Cookies_1.jpg ← gallery
+├── ABC_Bunny_Bait_Close.jpg     ← gallery
+├── ABC_Shelf_1.jpg              ← gallery
+├── ABC_Strawberries.jpg         ← gallery
+├── ABC_Easter_Menu1_Testing.jpg ← seasonal menu callout (draft)
+├── CNAME                        ← GitHub Pages custom domain config
+└── README.md                    ← this file
 ```
 
 ---
@@ -82,11 +65,11 @@ anniesbakingcreations/
 ## Sections (in order)
 
 1. **Hero** — Full-screen welcome with hero image + CTA
-2. **About** — Annie's story, from farm stand to bake shop
-3. **Menu** — Six categories: Pies, Cookies, Kolaches, Dessert Platters, Seasonal Specials, Custom Orders
+2. **About** — Annie's story, from farm stand to bake shop; shop as main photo, retired stand as inset
+3. **Menu** — Easter seasonal callout + six categories: Pies, Cookies, Kolaches, Dessert Platters, Seasonal Specials, Custom Orders
 4. **Custom Orders** — Spotlight section: weddings, birthdays, holidays, any occasion
-5. **Gallery** — 8-tile responsive photo mosaic
+5. **Gallery** — 8-tile responsive photo mosaic with real photos
 6. **FAQ** — Native accordion, no JavaScript
-7. **Order** — Google Form embed
-8. **Contact** — Location, phone, email, social links
+7. **Order** — Google Form embed (live but in testing — do not submit real orders yet)
+8. **Contact** — Location, phone, email, Facebook, Instagram
 9. **Footer** — Copyright, nav links, social links, tagline
