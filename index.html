@@ -656,8 +656,9 @@
     .menu-items li {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      padding: 9px 0;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
       border-bottom: 1px dashed #FFDCE6;
     }
 
@@ -665,26 +666,83 @@
       border-bottom: none;
     }
 
+    .item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
     .item-name {
       font-weight: 700;
       color: #4A2C2A;
       font-size: 0.93rem;
+      line-height: 1.3;
     }
 
-    .item-price {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #FF69B4;
-      flex-shrink: 0;
-      margin-left: 12px;
-    }
-
-    .item-note {
+    .item-desc {
       font-size: 0.78rem;
       color: #B08090;
       font-style: italic;
-      margin-left: 6px;
     }
+
+    .item-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 3px;
+    }
+
+    .item-lead-time,
+    .item-date-range,
+    .item-note-text {
+      font-size: 0.72rem;
+      color: #9B6B7B;
+      background: #FFF0F3;
+      border: 1px solid #FFD6E0;
+      border-radius: 50px;
+      padding: 1px 8px;
+      white-space: nowrap;
+    }
+
+    .item-right {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .item-price {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #FF69B4;
+      line-height: 1.3;
+    }
+
+    .item-unit {
+      font-size: 0.7rem;
+      color: #B08090;
+      text-align: right;
+    }
+
+    .item-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: 50px;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .badge-out    { background: #FFE0E8; color: #C0436B; }
+    .badge-unavail { background: #F5E8FF; color: #8B4FB0; }
+    .badge-expired { background: #F0F0F0; color: #999; }
+    .badge-ending  { background: #FFF3D6; color: #B07000; }
+
+    .item-unavailable { opacity: 0.52; }
+    .item-unavailable .item-name { text-decoration: line-through; }
 
     .menu-footer-note {
       text-align: center;
@@ -698,6 +756,109 @@
       font-style: italic;
       font-size: 1rem;
       line-height: 1.6;
+    }
+
+    /* ============================================================
+       MENU — SEASON TABS
+    ============================================================ */
+    .menu-season-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .menu-tab-btn {
+      position: relative;
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: 2px solid #FFB6C1;
+      background: transparent;
+      color: #9B6B7B;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .menu-tab-btn:hover {
+      border-color: #FF69B4;
+      color: #FF69B4;
+      background: rgba(255, 105, 180, 0.05);
+    }
+
+    .menu-tab-btn.active {
+      background: linear-gradient(135deg, #FF69B4 0%, #FFB6C1 100%);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(255, 105, 180, 0.28);
+    }
+
+    .season-badge {
+      position: absolute;
+      top: -9px;
+      right: -4px;
+      background: #4A2C2A;
+      color: #FFD6E0;
+      font-size: 0.58rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 50px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       MENU — LOADING / EMPTY / ERROR STATES
+    ============================================================ */
+    @keyframes menu-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .menu-loading {
+      text-align: center;
+      padding: 72px 0;
+      color: #9B6B7B;
+    }
+
+    .menu-loading-spinner {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      border: 3px solid #FFD6E0;
+      border-top-color: #FF69B4;
+      border-radius: 50%;
+      animation: menu-spin 0.75s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    .menu-loading p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .menu-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 0;
+      color: #9B6B7B;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+
+    .menu-error {
+      text-align: center;
+      padding: 48px 0;
+      color: #C0436B;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
     }
 
     /* ============================================================
@@ -1357,146 +1518,8 @@
         </div>
       </div>
 
-      <div class="menu-grid">
-
-        <!-- PIES -->
-        <div class="menu-card">
-          <span class="menu-card-icon">🥧</span>
-          <h3 class="menu-card-title">Pies</h3>
-          <ul class="menu-items">
-            <!-- TODO: Replace placeholders with real pie names and prices -->
-            <li>
-              <span class="item-name">[Pie Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Pie Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Pie Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Pie Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- COOKIES -->
-        <div class="menu-card">
-          <span class="menu-card-icon">🍪</span>
-          <h3 class="menu-card-title">Cookies</h3>
-          <ul class="menu-items">
-            <!-- TODO: Replace placeholders with real cookie names and prices -->
-            <li>
-              <span class="item-name">[Cookie Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Cookie Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Cookie Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Cookie Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- KOLACHES -->
-        <div class="menu-card">
-          <span class="menu-card-icon">🍞</span>
-          <h3 class="menu-card-title">Kolaches</h3>
-          <ul class="menu-items">
-            <!-- TODO: Replace placeholders with real kolache names and prices -->
-            <li>
-              <span class="item-name">[Kolache Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Kolache Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Kolache Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- DESSERT PLATTERS -->
-        <div class="menu-card">
-          <span class="menu-card-icon">🎂</span>
-          <h3 class="menu-card-title">Dessert Platters</h3>
-          <ul class="menu-items">
-            <!-- TODO: Replace placeholders with real platter names and prices -->
-            <li>
-              <span class="item-name">[Platter Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Platter Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Platter Name]</span>
-              <span class="item-price">TODO</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- SEASONAL SPECIALS -->
-        <div class="menu-card">
-          <span class="menu-card-icon">🌸</span>
-          <h3 class="menu-card-title">Seasonal Specials</h3>
-          <ul class="menu-items">
-            <!-- TODO: Update with current seasonal offerings; this list will change often -->
-            <li>
-              <span class="item-name">[Seasonal Item]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Seasonal Item]</span>
-              <span class="item-price">TODO</span>
-            </li>
-            <li>
-              <span class="item-name">[Seasonal Item]</span>
-              <span class="item-price">TODO</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- CUSTOM ORDERS (menu card teaser — full section below) -->
-        <div class="menu-card">
-          <span class="menu-card-icon">✨</span>
-          <h3 class="menu-card-title">Custom Orders</h3>
-          <ul class="menu-items">
-            <li>
-              <span class="item-name">Weddings</span>
-              <span class="item-price">Inquire</span>
-            </li>
-            <li>
-              <span class="item-name">Birthdays</span>
-              <span class="item-price">Inquire</span>
-            </li>
-            <li>
-              <span class="item-name">Holidays</span>
-              <span class="item-price">Inquire</span>
-            </li>
-            <li>
-              <span class="item-name">Any Occasion</span>
-              <span class="item-price">Inquire</span>
-            </li>
-          </ul>
-        </div>
-
-      </div><!-- /.menu-grid -->
+      <div id="menu-tabs" class="menu-season-tabs" role="tablist" aria-label="Menu season"></div>
+      <div id="menu-content"></div>
 
       <div class="menu-footer-note">
         ✦ &nbsp; Our menu follows the seasons — follow us on social media for daily specials and availability &nbsp; ✦
@@ -1793,6 +1816,261 @@
     <p class="footer-love">Built with love in Bassett, WI</p>
 
   </footer>
+
+
+  <!-- ============================================================
+       MENU — Live data from Google Sheets
+       Fetches all 5 season tabs on every page load; any edits to
+       the spreadsheet appear automatically on the next visit.
+  ============================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    var SHEET_ID = '1E4YzEKp-oSxkv26OsEtwpYcIz0PMHu0toifp433hWbA';
+
+    var TABS = [
+      { key: 'year-round', label: 'Year Round',     sheet: 'Menu - Year Round',     seasonal: false, months: [] },
+      { key: 'spring',     label: 'Spring',          sheet: 'Menu - Spring',          seasonal: true,  months: [3,4,5] },
+      { key: 'summer',     label: 'Summer',          sheet: 'Menu - Summer',          seasonal: true,  months: [6,7,8] },
+      { key: 'fall',       label: 'Fall',            sheet: 'Menu - Fall',            seasonal: true,  months: [9,10,11] },
+      { key: 'winter',     label: 'Winter Holiday',  sheet: 'Menu - Winter Holiday',  seasonal: true,  months: [12,1,2] }
+    ];
+
+    var ICONS = {
+      cookie:  '🍪',
+      bar:     '🍫',
+      pie:     '🥧',
+      kolache: '🥐',
+      bread:   '🍞',
+      cake:    '🎂',
+      candy:   '🍬',
+      other:   '✨'
+    };
+
+    /* ── helpers ── */
+
+    function icon(category) {
+      return ICONS[(category || '').toLowerCase()] || '✨';
+    }
+
+    function currentSeasonKey() {
+      var m = new Date().getMonth() + 1;
+      if (m >= 3 && m <= 5)  return 'spring';
+      if (m >= 6 && m <= 8)  return 'summer';
+      if (m >= 9 && m <= 11) return 'fall';
+      return 'winter';
+    }
+
+    function fmtDate(s) {
+      if (!s) return '';
+      var p = s.split('-');
+      if (p.length !== 3) return s;
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return months[parseInt(p[1], 10) - 1] + ' ' + parseInt(p[2], 10);
+    }
+
+    function daysDiff(dateStr) {
+      var d = new Date(dateStr);
+      var now = new Date();
+      now.setHours(0,0,0,0);
+      return (d - now) / 86400000;
+    }
+
+    function bool(v) {
+      return (v || '').trim().toUpperCase() === 'TRUE';
+    }
+
+    /* ── CSV parser ── */
+
+    function parseCSV(text) {
+      var lines = text.trim().split(/\r?\n/);
+      if (lines.length < 2) return [];
+      var headers = splitCSVLine(lines[0]);
+      var rows = [];
+      for (var i = 1; i < lines.length; i++) {
+        var vals = splitCSVLine(lines[i]);
+        var obj = {};
+        headers.forEach(function (h, idx) {
+          obj[h.trim()] = (vals[idx] || '').trim();
+        });
+        /* skip completely blank rows */
+        if (!obj['Item Name']) continue;
+        rows.push(obj);
+      }
+      return rows;
+    }
+
+    function splitCSVLine(line) {
+      var result = [], cur = '', inQ = false;
+      for (var i = 0; i < line.length; i++) {
+        var c = line[i];
+        if (c === '"') {
+          if (inQ && line[i + 1] === '"') { cur += '"'; i++; }
+          else { inQ = !inQ; }
+        } else if (c === ',' && !inQ) {
+          result.push(cur); cur = '';
+        } else {
+          cur += c;
+        }
+      }
+      result.push(cur);
+      return result;
+    }
+
+    /* ── render ── */
+
+    function esc(str) {
+      return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function renderGrid(items) {
+      if (!items.length) {
+        return '<p class="menu-empty">Nothing listed for this season yet — check back soon!</p>';
+      }
+
+      /* group by Category, preserving first-seen order */
+      var order = [], bycat = {};
+      items.forEach(function (item) {
+        var cat = item['Category'] || 'Other';
+        if (!bycat[cat]) { bycat[cat] = []; order.push(cat); }
+        bycat[cat].push(item);
+      });
+
+      var cards = order.map(function (cat) {
+        var rows = bycat[cat].map(function (item) {
+          var inStock      = bool(item['In Stock']);
+          var canOrder     = bool(item['Available to Order']);
+          var isSeasonal   = bool(item['Seasonal / Limited']);
+          var endDate      = item['Available End'];
+          var startDate    = item['Available Start'];
+          var lead         = parseInt(item['Lead Time (days)'], 10) || 0;
+          var notes        = item['Notes'];
+
+          var expired    = isSeasonal && endDate && daysDiff(endDate) < 0;
+          var endingSoon = isSeasonal && endDate && !expired && daysDiff(endDate) <= 14;
+          var unavailable = !inStock || !canOrder || expired;
+
+          /* meta pills */
+          var meta = '';
+          if (lead > 0) {
+            meta += '<span class="item-lead-time">Order ' + lead + ' day' + (lead !== 1 ? 's' : '') + ' ahead</span>';
+          }
+          if (isSeasonal && startDate && endDate) {
+            meta += '<span class="item-date-range">' + esc(fmtDate(startDate)) + ' – ' + esc(fmtDate(endDate)) + '</span>';
+          }
+          if (notes) {
+            meta += '<span class="item-note-text">' + esc(notes) + '</span>';
+          }
+
+          /* status badges */
+          var badges = '';
+          if (expired)         badges += '<span class="item-badge badge-expired">Season ended</span>';
+          else if (endingSoon) badges += '<span class="item-badge badge-ending">Ending soon</span>';
+          if (!inStock)        badges += '<span class="item-badge badge-out">Out of stock</span>';
+          else if (!canOrder)  badges += '<span class="item-badge badge-unavail">Not taking orders</span>';
+
+          var unit = item['Price Unit'] ? '<span class="item-unit">' + esc(item['Price Unit']) + '</span>' : '';
+
+          return '<li class="' + (unavailable ? 'item-unavailable' : '') + '">'
+            + '<div class="item-info">'
+            +   '<span class="item-name">' + esc(item['Item Name']) + '</span>'
+            +   (item['Description'] ? '<span class="item-desc">' + esc(item['Description']) + '</span>' : '')
+            +   (meta ? '<div class="item-meta">' + meta + '</div>' : '')
+            + '</div>'
+            + '<div class="item-right">'
+            +   '<span class="item-price">' + esc(item['Price']) + '</span>'
+            +   unit
+            +   badges
+            + '</div>'
+            + '</li>';
+        }).join('');
+
+        return '<div class="menu-card">'
+          + '<span class="menu-card-icon">' + icon(cat) + '</span>'
+          + '<h3 class="menu-card-title">' + esc(cat) + '</h3>'
+          + '<ul class="menu-items">' + rows + '</ul>'
+          + '</div>';
+      }).join('');
+
+      return '<div class="menu-grid">' + cards + '</div>';
+    }
+
+    /* ── fetch ── */
+
+    function fetchTab(tab) {
+      var url = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID
+        + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(tab.sheet);
+      return fetch(url).then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      }).then(parseCSV);
+    }
+
+    /* ── init ── */
+
+    function init() {
+      var tabsEl    = document.getElementById('menu-tabs');
+      var contentEl = document.getElementById('menu-content');
+      if (!tabsEl || !contentEl) return;
+
+      /* loading state */
+      contentEl.innerHTML = '<div class="menu-loading">'
+        + '<div class="menu-loading-spinner"></div>'
+        + '<p>Loading menu…</p>'
+        + '</div>';
+
+      var allData    = {};
+      var activeKey  = null;
+      var seasonKey  = currentSeasonKey();
+
+      /* fetch all tabs in parallel */
+      Promise.all(TABS.map(fetchTab)).then(function (results) {
+        TABS.forEach(function (tab, i) { allData[tab.key] = results[i]; });
+
+        /* pick default tab: current season if it has items, else year-round */
+        var defaultKey = allData[seasonKey] && allData[seasonKey].length ? seasonKey : 'year-round';
+
+        /* build tab buttons */
+        tabsEl.innerHTML = TABS.map(function (tab) {
+          var isCurrent = tab.seasonal && tab.key === seasonKey;
+          var badge = isCurrent ? '<span class="season-badge">Now</span>' : '';
+          return '<button class="menu-tab-btn" data-tab="' + tab.key + '" role="tab" aria-selected="false">'
+            + esc(tab.label) + badge + '</button>';
+        }).join('');
+
+        function showTab(key) {
+          if (activeKey === key) return;
+          activeKey = key;
+          tabsEl.querySelectorAll('.menu-tab-btn').forEach(function (btn) {
+            var on = btn.dataset.tab === key;
+            btn.classList.toggle('active', on);
+            btn.setAttribute('aria-selected', on ? 'true' : 'false');
+          });
+          contentEl.innerHTML = renderGrid(allData[key] || []);
+        }
+
+        tabsEl.addEventListener('click', function (e) {
+          var btn = e.target.closest('.menu-tab-btn');
+          if (btn) showTab(btn.dataset.tab);
+        });
+
+        showTab(defaultKey);
+
+      }).catch(function () {
+        tabsEl.innerHTML = '';
+        contentEl.innerHTML = '<p class="menu-error">Unable to load the menu right now.'
+          + ' Please <a href="#contact">contact us</a> for current offerings.</p>';
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
 
 </body>
 </html>
