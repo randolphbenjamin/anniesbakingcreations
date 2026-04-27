@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Annie's Baking Creations — Homemade Baked Goods in Bassett, WI</title>
 
-  <!-- TODO: Remove the noindex tag below once the site is ready to go live and appear in search results -->
-  <meta name="robots" content="noindex, nofollow">
 
   <!-- Google Fonts: Dancing Script (logo/accents), Playfair Display (headings), Lato (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1202,7 +1200,7 @@
       width: 100%;
       border-radius: 22px;
       overflow: hidden;
-      border: 3px dashed #e6a817;
+      border: 1px solid #FFE0E8;
       box-shadow: 0 8px 40px rgba(255, 105, 180, 0.1);
       background: #fafafa;
     }
@@ -1506,24 +1504,31 @@
       <span class="section-label">Our Menu</span>
       <p class="section-sub">Seasonal &amp; always changing — made fresh to order</p>
 
-      <!-- Easter Menu seasonal feature callout -->
-      <!-- TODO: Remove or swap this section when Easter season ends; replace with the next seasonal menu image -->
+      <!--
+        SEASONAL FEATURE CALLOUT — uncomment this block to reinstate for a holiday.
+        To reuse: update the 3 marked fields below and uncomment.
+          1. img src / alt      — swap in the new menu image
+          2. eyebrow text       — e.g. "🎄 Now Available"
+          3. h3 heading         — e.g. "Christmas Menu"
+          4. description <p>    — update the copy
+          5. button text        — e.g. "Order for Christmas"
+
       <div class="seasonal-feature">
         <div class="seasonal-feature-img">
-          <!-- Note: using ABC_Easter_Menu1_Testing.jpg — draft/preview version of the Easter menu -->
-          <img src="ABC_Easter_Menu1_Testing.jpg" alt="Annie's Easter Menu — Spring 2026">
+          <img src="ABC_Easter_Menu1_Testing.jpg" alt="Annie's Easter Menu — Spring 2026">  <!-- 1. image -->
         </div>
         <div class="seasonal-feature-text">
-          <span class="seasonal-eyebrow">🐣 Now Available</span>
-          <h3>Easter Menu</h3>
+          <span class="seasonal-eyebrow">🐣 Now Available</span>  <!-- 2. eyebrow -->
+          <h3>Easter Menu</h3>  <!-- 3. heading -->
           <p>
             Spring has arrived in Bassett! Our Easter menu features a selection of
             seasonal treats made fresh to order — perfect for your holiday table or
             as a sweet gift for someone special.
-          </p>
-          <a href="#order" class="btn btn-primary" style="align-self:flex-start;">Order for Easter</a>
+          </p>  <!-- 4. description -->
+          <a href="#order" class="btn btn-primary" style="align-self:flex-start;">Order for Easter</a>  <!-- 5. button -->
         </div>
       </div>
+      -->
 
       <div id="menu-tabs" class="menu-season-tabs" role="tablist" aria-label="Menu season"></div>
       <div id="menu-content"></div>
@@ -1625,7 +1630,23 @@
         </div>
         <!-- Tile 8: wide (spans 2 cols) -->
         <div class="gallery-item">
-          <img src="ABC_Strawberries.jpg" alt="Fresh strawberries used in Annie's seasonal bakes" style="width:100%;height:100%;object-fit:cover;">
+          <img src="ABC_Croissant.jpeg" alt="Freshly baked croissant" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <!-- Tile 9 -->
+        <div class="gallery-item">
+          <img src="ABC_Flower_Cookies.jpeg" alt="Decorated flower cookies" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <!-- Tile 10 -->
+        <div class="gallery-item">
+          <img src="ABC_Flower_Cookies_2.jpeg" alt="Decorated flower cookies" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <!-- Tile 11 -->
+        <div class="gallery-item">
+          <img src="ABC_Red_Velvet_Cake.jpeg" alt="Red velvet cake" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <!-- Tile 12 -->
+        <div class="gallery-item">
+          <img src="ABC_Red_Velvet_Cupcake.jpeg" alt="Red velvet cupcake" style="width:100%;height:100%;object-fit:cover;">
         </div>
       </div>
 
@@ -1707,20 +1728,11 @@
           We'll follow up within 1–2 business days to confirm details.
         </div>
 
-        <!-- TODO: Remove the testing banner below once the form is reviewed and ready to go live -->
-        <div class="form-testing-banner">
-          <span class="ftb-icon">⚠️</span>
-          <div class="ftb-body">
-            <strong>Testing Only — Do Not Submit Real Orders</strong>
-            <p>This form is currently being tested and is <em>not yet active</em>. Any orders submitted here will <em>not</em> be received. Please contact Annie directly until this notice is removed.</p>
-          </div>
-        </div>
-
         <div class="form-shell">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSfKUXnEf-Ki0nRoxzZPsUig4gzo2mruQeCcgyEf-9ysTyeNVA/viewform?embedded=true"
             height="720"
-            title="Annie's Baking Creations — Order Form (Testing)">
+            title="Annie's Baking Creations — Order Form">
             Loading form…
           </iframe>
         </div>
@@ -1746,24 +1758,22 @@
         <div class="contact-card">
           <span class="contact-icon">📍</span>
           <h3>Location</h3>
-          <!-- TODO: Add full street address -->
-          <p>Bassett, WI</p>
-          <span class="todo-badge">Full address coming soon</span>
+          <p>34025 Bassett Rd<br>Burlington, WI 53105</p>
+          <a href="https://maps.google.com/?q=34025+Bassett+Rd,+Burlington,+WI+53105" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
         </div>
 
         <!-- Phone -->
         <div class="contact-card">
           <span class="contact-icon">📞</span>
           <h3>Phone</h3>
-          <!-- TODO: Add phone number -->
-          <span class="todo-badge">Phone number coming soon</span>
+          <p id="contact-phone"></p>
         </div>
 
-        <!-- Email — plain text intentionally (no mailto link) -->
+        <!-- Email -->
         <div class="contact-card">
           <span class="contact-icon">✉️</span>
           <h3>Email</h3>
-          <p>annie [at] anniesbakingcreations [dot] com</p>
+          <p id="contact-email"></p>
         </div>
 
         <!-- Facebook -->
@@ -1821,6 +1831,18 @@
 
   </footer>
 
+
+  <!-- Contact info injected via JS to deter scrapers -->
+  <script>
+  (function () {
+    var ph = atob('KDI2MikgMjM3LTQ3NzE=');
+    var em = atob('YW5uaWVjYXI0NEBnbWFpbC5jb20=');
+    var phoneEl = document.getElementById('contact-phone');
+    var emailEl = document.getElementById('contact-email');
+    if (phoneEl) phoneEl.innerHTML = '<a href="tel:' + ph + '">' + ph + '</a>';
+    if (emailEl) emailEl.innerHTML = '<a href="mailto:' + em + '">' + em + '</a>';
+  })();
+  </script>
 
   <!-- ============================================================
        MENU — Live data from Google Sheets
